@@ -1,0 +1,192 @@
+{{!-- There are 2 code paths for generating the PDP pricing HTML determined by the following #and condition.
+If a 'price_range' exists then we generate all HTML in price-range.html, otherwise it is defined here. Both code
+paths generate the same HTML structure with some differences in whether that element is displayed by default (css styling).
+
+If you are making a change here or in price-range.html, you probably want to make that change in both files. --}}
+{{#compare settings.channel_id theme_settings.pro_channel}}
+
+    {{#and price.price_range (if theme_settings.price_ranges '==' true)}}
+        {{> components/products/price-range price=price price-range-custom=price-range-custom}}
+    {{else}}
+        {{#if price.with_tax}}
+            <div class="price-section price-section--withoutTax rrp-price--withoutTax{{#unless price.rrp_without_tax}}{{#unless price.rrp_with_tax}}{{#unless price.non_sale_price_without_tax}}{{#unless price.non_sale_price_with_tax}} price-none{{/unless}}{{/unless}}{{/unless}}{{/unless}}" {{#unless price.rrp_without_tax}}{{#unless price.rrp_with_tax}}{{#unless price.non_sale_price_without_tax}}{{#unless price.non_sale_price_with_tax}}style="display: none;"{{/unless}}{{/unless}}{{/unless}}{{/unless}}>
+                <span style="display: none;">
+                    {{> components/products/price-label
+                        label_value=theme_settings.pdp-retail-price-label
+                    }}
+                </span>
+                <span class="price-no-sale">{{lang 'products.price_message'}} </span>
+                <span data-product-rrp-price-without-tax class="price price--rrp">
+                    {{#if price.rrp_with_tax}}
+                        {{price.rrp_with_tax.formatted}} TTC
+                    {{else if price.non_sale_price_with_tax}}
+                        {{price.non_sale_price_with_tax.formatted}} TTC
+                    {{else if price.rrp_without_tax}}
+                        {{price.rrp_without_tax.formatted}} HT
+                    {{else if price.non_sale_price_without_tax}}
+                        {{price.non_sale_price_without_tax.formatted}} HT
+                    {{/if}}
+                </span>
+            </div>
+            <span data-product-price-with-tax class="price price--withTax" data-value-price="{{price.with_tax.formatted}}" style="display: none;">{{price.with_tax.formatted}}</span>
+        <!--   <div class="price-section price-section--withTax">
+                <span class="price-label"style="display: none;">
+                    {{theme_settings.pdp-price-label}}
+                </span>
+                <span class="price-now-label" style="display: none;">
+                    {{> components/products/price-label
+                        label_value=theme_settings.pdp-sale-price-label
+                    }}
+                </span>
+                <span data-product-price-with-tax class="price price--withTax" data-value-price="{{price.with_tax.formatted}}">{{price.with_tax.formatted}}</span>
+                {{#if price.without_tax}}
+                    <abbr title="{{lang 'products.including_tax'}}">{{lang 'products.price_with_tax' tax_label=price.tax_label}}</abbr>
+                {{/if}}
+            </div>
+            <div class="price-section price-section--withTax non-sale-price--withTax{{#unless price.non_sale_price_with_tax}} price-none{{/unless}}" {{#unless price.non_sale_price_with_tax}}style="display: none;"{{/unless}}>
+                <span style="display: none;">
+                    {{> components/products/price-label
+                        label_value=theme_settings.pdp-non-sale-price-label
+                    }}
+                </span>
+                <span data-product-non-sale-price-with-tax class="price price--non-sale">
+                    {{price.non_sale_price_with_tax.formatted}}
+                </span>
+            </div>-->
+        {{/if}}<br>
+        <div class="price-inline-group">
+        <div class="price-section price-section--withoutTax non-sale-price--withoutTax{{#if price.with_tax}} price-section--minor{{/if}}{{#unless price.rrp_without_tax}}{{#unless price.rrp_with_tax}}{{#unless price.non_sale_price_without_tax}}{{#unless price.non_sale_price_with_tax}} price-none{{/unless}}{{/unless}}{{/unless}}{{/unless}}" {{#unless price.rrp_without_tax}}{{#unless price.rrp_with_tax}}{{#unless price.non_sale_price_without_tax}}{{#unless price.non_sale_price_with_tax}}style="display: none;"{{/unless}}{{/unless}}{{/unless}}{{/unless}}>
+            <span style="display: none;">
+                {{> components/products/price-label
+                    label_value=theme_settings.pdp-non-sale-price-label
+                }}
+            </span>
+            <span data-product-non-sale-price-without-tax class="price price--non-sale">
+                {{#if price.rrp_without_tax}}
+                    {{price.rrp_without_tax.formatted}} HT
+                {{else if price.rrp_with_tax}}
+                    {{money (divide price.rrp_with_tax.value 1.2)}} HT
+                {{else if price.non_sale_price_without_tax}}
+                    {{price.non_sale_price_without_tax.formatted}} HT
+                {{else if price.non_sale_price_with_tax}}
+                    {{money (divide price.non_sale_price_with_tax.value 1.2)}} HT
+                {{/if}}
+            </span>
+        </div>
+        {{#if price.without_tax}}
+            <div class="price-section price-section--withoutTax selling-price">
+                <span class="price-label" style="display: none;">
+                    {{theme_settings.pdp-price-label}}
+                </span>
+                <span class="price-now-label" style="display: none;">
+                    {{> components/products/price-label
+                        label_value=theme_settings.pdp-sale-price-label
+                    }}
+                </span>
+                        <span data-product-price-without-tax class="price price--withoutTax{{#if price.with_tax}} price-section--minor{{/if}}" data-value-price="{{price.without_tax.formatted}}">{{price.without_tax.formatted}}</span>
+
+                
+                {{#if price.with_tax}}
+                <span class="HT-label">{{lang 'products.price_without_tax' tax_label=price.tax_label}}</span>
+                {{/if}}
+            </div>
+        {{else if price.with_tax}}
+            <div class="price-section price-section--withoutTax selling-price">
+                <span class="price-label" style="display: none;">
+                    {{theme_settings.pdp-price-label}}
+                </span>
+                <span class="price-now-label" style="display: none;">
+                    {{> components/products/price-label
+                        label_value=theme_settings.pdp-sale-price-label
+                    }}
+                </span>
+                <span data-product-price-without-tax class="price price--withoutTax price-section--minor" data-value-price="{{money (divide price.with_tax.value 1.2)}}">{{money (divide price.with_tax.value 1.2)}}</span>
+                <span class="HT-label">{{lang 'products.price_without_tax' tax_label=price.tax_label}}</span>
+            </div>
+        {{/if}}
+        </div>
+        <br>
+        {{#if page_type '===' 'product'}}
+            <div class="price-section price-section--saving price price-section--saving-custom" {{#unless price.saved}}style="display: none;"{{/unless}}>
+                    <span class="price">{{lang 'products.you_save_opening_text'}}</span>
+                    <span data-product-price-saved class="price price--saving price--withoutTax">
+                        {{#if price.rrp_without_tax.value}}
+                            {{money (subtract (toFixed price.rrp_without_tax.value 2) (toFixed price.without_tax.value 2))}}
+                        {{else if price.rrp_with_tax.value}}
+                            {{money (subtract (toFixed (divide price.rrp_with_tax.value 1.2) 2) (toFixed (divide price.with_tax.value 1.2) 2))}}
+                        {{else if price.non_sale_price_without_tax.value}}
+                            {{money (subtract (toFixed price.non_sale_price_without_tax.value 2) (toFixed price.without_tax.value 2))}}
+                        {{else if price.non_sale_price_with_tax.value}}
+                            {{money (subtract (toFixed (divide price.non_sale_price_with_tax.value 1.2) 2) (toFixed (divide price.with_tax.value 1.2) 2))}}
+                        {{/if}}
+
+                    </span>
+                    <span class="price">{{lang 'products.you_save_closing_bracket'}}</span>
+            </div>
+        {{/if}}
+
+        <br>
+        
+
+    {{/and}}
+
+{{else}}
+
+    {{#and price.price_range (if theme_settings.price_ranges '==' true)}}
+        {{> components/products/price-range price=price price-range-custom=price-range-custom}}
+    {{else}}
+        {{#if price.with_tax}}
+            <div class="price-section price-section--withTax rrp-price--withTax{{#unless price.non_sale_price_with_tax}} price-none{{/unless}}" {{#unless price.rrp_with_tax}}style="display: none;"{{/unless}}>
+                <span style="display: none;">
+                    {{> components/products/price-label
+                        label_value=theme_settings.pdp-retail-price-label
+                    }}
+                </span>
+                <span class="price-no-sale">{{lang 'products.price_message'}} </span>
+                <span data-product-rrp-with-tax class="price price--rrp">
+                    {{price.rrp_with_tax.formatted}} TTC
+                </span>
+            </div>
+            <span data-product-price-with-tax class="price price--withTax" data-value-price="{{price.with_tax.formatted}}" style="display: none;">{{price.with_tax.formatted}}</span>
+          <div class="price-section price-section--withTax selling-price" style="clear: both; display: block;">
+                <span class="price-label"style="display: none;">
+                    {{theme_settings.pdp-price-label}}
+                </span>
+                <span class="price-now-label" style="display: none;">
+                    {{> components/products/price-label
+                        label_value=theme_settings.pdp-sale-price-label
+                    }}
+                </span>
+                <span data-product-price-with-tax class="price price--withTax" data-value-price="{{price.with_tax.formatted}}">{{price.with_tax.formatted}}</span>
+                {{#if price.without_tax}}
+                    <!-- A VOIR SI TTC ou pas -->
+                {{/if}}
+            </div>
+            <div class="price-section price-section--withTax non-sale-price--withTax{{#unless price.non_sale_price_with_tax}} price-none{{/unless}}" {{#unless price.non_sale_price_with_tax}}style="display: none;"{{/unless}}>
+                <span style="display: none;">
+                    {{> components/products/price-label
+                        label_value=theme_settings.pdp-non-sale-price-label
+                    }}
+                </span>
+                <span data-product-non-sale-price-with-tax class="price price--non-sale">
+                    {{price.non_sale_price_with_tax.formatted}}
+                </span>
+            </div>
+        {{/if}}
+        {{#if page_type '===' 'product'}}
+            <div class="price-section price-section--saving price price-section--saving-custom" {{#unless price.saved}}style="display: none;"{{/unless}}>
+                    <span class="price">{{lang 'products.you_save_opening_text'}}</span>
+                    <span data-product-price-saved class="price price--saving price--withoutTax">
+                        {{price.saved.formatted}}
+
+                    </span>
+                    <span class="price">{{lang 'products.you_save_closing_bracket'}}</span>
+            </div>
+        {{/if}}
+
+        <br>
+        
+
+    {{/and}}
+
+{{/compare}}

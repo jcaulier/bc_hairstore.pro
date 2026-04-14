@@ -1,0 +1,24 @@
+{{assignVar "value" name}}
+{{assignVar "urlValue" url}}
+{{#each children}}
+    <div class="mega-col">
+    <a class="nav-mega-title" href="{{url}}">
+    {{name}}
+</a>
+
+
+    {{#if children}}
+        {{#each children}}
+            <a class="nav-mega-subitem link-line{{#if is_active}} activePage{{/if}}" href="{{url}}">
+                <span>{{name}}</span>
+            </a>
+        {{/each}}
+    {{else}}
+
+        <a class="nav-mega-subitem{{#if is_active}} activePage{{/if}}" href="{{url}}">
+            {{lang 'category.view_all.name' category=name}}
+        </a>
+    {{/if}}
+</div>
+
+{{/each}}

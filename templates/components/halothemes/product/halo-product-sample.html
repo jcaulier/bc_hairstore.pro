@@ -1,0 +1,33 @@
+{{#each products}}
+<div data-product-slide class="product-sample productCarousel-slide swiper-slide">
+    <div class="card card--standard animated b-r-10">
+        <figure class="card-figure">
+            <a href="{{url}}" class="card-figure__link" aria-label="{{name}}">
+                <div class="card-img-container halo-fadeZoom">
+                    <img class="card-image" 
+                         src="{{getImage image '300x400'}}" 
+                         alt="{{image.alt}}">
+                </div>
+            </a>
+        </figure>
+
+        <div class="card-body">
+            <h3 class="card-title">
+                <a href="{{url}}">{{name}}</a>
+            </h3>
+
+            {{#if price.with_tax.formatted}}
+                <div class="price">
+                    {{price.with_tax.formatted}}
+                </div>
+            {{else}}
+                <div class="price">{{lang 'products.contact_for_price'}}</div>
+            {{/if}}
+
+            {{#unless can_purchase}}
+                <p class="text-warning">{{lang 'products.unavailable'}}</p>
+            {{/unless}}
+        </div>
+    </div>
+</div>
+{{/each}}

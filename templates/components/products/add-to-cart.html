@@ -1,0 +1,57 @@
+<div id="add-to-cart-wrapper" class="add-to-cart-wrapper" {{#unless product.can_purchase}}style="display: none"{{/unless}}>
+    {{inject 'productQuantityErrorMessage'  (lang 'products.quantity_error_message')}}
+
+    {{#or customer (unless settings.hide_price_from_guests)}}
+        <div class="add-to-cart-row">
+            {{#if product.show_quantity_input}}
+                <div class="form-field form-field--increments">
+                    <div class="form-increment" data-quantity-change>
+                        <button class="button button--icon" data-action="dec">
+                            <span class="is-srOnly">{{lang 'products.quantity_decrease' name=product.title}}</span>
+                        </button>
+                        <input class="form-input form-input--incrementTotal"
+                               id="qty[]"
+                               name="qty[]"
+                               type="tel"
+                               value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                               data-quantity-min="{{product.min_purchase_quantity}}"
+                               data-quantity-max="{{product.max_purchase_quantity}}"
+                               min="1"
+                               pattern="[0-9]*"
+                               aria-live="polite">
+                        <button class="button button--icon" data-action="inc">
+                            <span class="is-srOnly">{{lang 'products.quantity_increase' name=product.title}}</span>
+                        </button>
+                    </div>
+                </div>
+            {{/if}}
+
+            <div class="form-action">
+                <button
+                    id="form-action-addToCart"
+                    data-wait-message="{{lang 'products.adding_to_cart'}}"
+                    class="button button--primary b-r-100 button-orange-classic custom-product-button custom-add-product"
+                    type="submit"
+                >
+                    <span>
+                        {{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}
+                    </span>
+                </button>
+            </div>
+
+            <div class="wishlist-action">
+                {{> components/common/wishlist id=product.id}}
+            </div>
+        </div>
+
+        <span class="product-status-message aria-description--hidden">
+            {{lang 'products.adding_to_cart'}} {{lang 'category.add_cart_announcement'}}
+        </span>
+
+        <!--{{#if this.with_wallet_buttons}}
+            <div class="add-to-cart-wallet-buttons" data-add-to-cart-wallet-buttons>
+                {{> components/common/wallet-buttons}}
+            </div>
+        {{/if}}-->
+    {{/or}}
+</div>

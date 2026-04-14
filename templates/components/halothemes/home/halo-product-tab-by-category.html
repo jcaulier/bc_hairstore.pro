@@ -1,0 +1,53 @@
+<div class="halo-block halo-block-product halo-block-product-tabs" data-halo-load="animation">
+    <div class="container container-1600">
+        {{#if title}}
+            <div class="halo-block-header center o-h">
+                <h2 class="title d-inline-block halo-fadeInUp">{{title}}</h2>
+            </div>
+        {{/if}}
+        <div class="halo-productbyTabs">
+    <ul class="tabs center haloCustomScrollbar-x disable-srollbar m-b-40 m-b-20-tb" data-tab role="tablist">
+        {{#each theme_settings.productbytabs_categories}}
+            <li class="tab f-none d-inline-block {{#if @first}}is-active{{/if}}" role="presentation">
+                <a class="tab-title f-heading b-r-100 custom-design-productbytab" href="#category_{{category_id}}" role="tab"
+                   tabindex="0" aria-selected="{{#if @first}}true{{else}}false{{/if}}"
+                   aria-controls="category_{{category_id}}">
+                    <span>{{title}}</span>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+
+    <div class="tabs-contents m-0">
+        {{#each theme_settings.productbytabs_categories}}
+            <div class="tab-content {{#if @first}}is-active{{/if}}" id="category_{{category_id}}" role="tabpanel"
+                 aria-hidden="{{#unless @first}}true{{/unless}}"
+                 data-tab-category-id="{{category_id}}"
+                 data-tab-category-url="{{category_url}}">
+                <div class="loadingOverlay"></div>
+                <section class="productCarousel haloSwiper pos-relative o-h"
+                    data-list-name="Product By Tabs"
+                    data-per-view-mob="{{../theme_settings.cardProd_colMob}}" 
+                    data-per-view-tab="{{../theme_settings.cardProd_colTab}}" 
+                    data-per-view-des="{{../theme_settings.cardProd_col}}" 
+                    data-swiper-pag-mob="true" 
+                    data-swiper-space-tab="20" 
+                    data-swiper-space-des="30"
+                    data-rows-des="2">
+                    <div class="swiper-wrapper disable-srollbar">
+                        {{> components/halothemes/product/halo-product-sample}}
+                        {{> components/halothemes/product/halo-product-sample}}
+                        {{> components/halothemes/product/halo-product-sample}}
+                        {{> components/halothemes/product/halo-product-sample}}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </section>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+{{{region name="home_below_products_tab_by_category"}}}
+    </div>
+</div>
+{{{region name="home_below_products_tab_by_category"}}}

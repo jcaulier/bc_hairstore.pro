@@ -1,0 +1,53 @@
+<section class="slideshow swiper haloSwiper"
+         data-swiper-autoplay="true"
+         data-swiper-speed="1500"
+         data-swiper-delay="{{carousel.swap_frequency}}"
+         data-swiper-pag-mob="true"
+         data-swiper-pag-tab="true"
+         data-swiper-pag-des="true"
+         data-swiper-nav-mob="true"
+         data-swiper-nav-tab="true"
+         data-swiper-nav-des="true"
+         data-swiper-loop="true"
+         data-halo-load="animation">
+
+    <div class="swiper-wrapper">
+        {{#each carousel.slides}}
+            {{#if @index '==' 0}}
+                {{> components/carousel-item-first settings=../settings position=../theme_settings.carousel_pos_1}}
+            {{/if}}
+            {{#if @index '==' 1}}
+                {{> components/carousel-item settings=../settings position=../theme_settings.carousel_pos_2}}
+            {{/if}}
+            {{#if @index '==' 2}}
+                {{> components/carousel-item settings=../settings position=../theme_settings.carousel_pos_3}}
+            {{/if}}
+            {{#if @index '==' 3}}
+                {{> components/carousel-item settings=../settings position=../theme_settings.carousel_pos_4}}
+            {{/if}}
+            {{#if @index '==' 4}}
+                {{> components/carousel-item settings=../settings position=../theme_settings.carousel_pos_5}}
+            {{/if}}
+        {{/each}}
+    </div>
+
+    <!-- Pagination dots -->
+    <div class="swiper-pagination"></div>
+
+<!-- Arrows -->
+    <div class="swiper-button-prev arrow-custom">
+        <div class="icon-wrap pos-relative o-h d-flex j-c-center a-i-center w-100 h-100">
+            <i class="icon-inner icon-fr w-100 h-100">
+                <svg><use href="#icon-arrow-prev"></use></svg>
+            </i>
+        </div>
+    </div>
+    
+    <div class="swiper-button-next arrow-custom">
+        <div class="icon-wrap pos-relative o-h d-flex j-c-center a-i-center w-100 h-100">
+            <i class="icon-inner icon-fr w-100 h-100">
+                <svg><use href="#icon-arrow-next"></use></svg>
+            </i>
+        </div>
+    </div>
+</section>

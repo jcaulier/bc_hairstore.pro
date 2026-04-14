@@ -1,0 +1,77 @@
+<div class="halo-block halo-block-product halo-block-product-tabs" data-halo-load="animation">
+    <div class="container container-1600">
+        {{#if theme_settings.reggao.productBlock3.productbyTabs_title}}
+        <div class="halo-block-header center o-h">
+            <h2 class="title d-inline-block halo-fadeInUp">{{theme_settings.reggao.productBlock3.productbyTabs_title}}</h2>
+        </div>
+        {{/if}}
+        <div class="halo-productbyTabs">
+            <ul class="tabs center haloCustomScrollbar-x disable-srollbar m-b-10 m-b-10-tb" data-tab role="tablist">
+                {{#each theme_settings.reggao.productBlock3.productbytabs_categories}}
+                <li class="tab f-none d-inline-block {{#if @first}}is-active{{/if}}" role="presentation">
+                    <a class="tab-title f-heading b-r-100 custom-design-productbytab" href="#category_{{category_id}}" role="tab"
+                       tabindex="0" aria-selected="{{#if @first}}true{{else}}false{{/if}}"
+                       aria-controls="category_{{category_id}}">
+                        <span>{{title}}</span>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+
+            <div class="tabs-contents m-0">
+                {{#each theme_settings.reggao.productBlock3.productbytabs_categories}}
+                <div class="tab-content {{#if @first}}is-active{{/if}}" id="category_{{category_id}}" role="tabpanel"
+                     aria-hidden="{{#unless @first}}true{{/unless}}"
+                     data-tab-category-id="{{category_id}}"
+                     data-tab-category-url="{{category_url}}">
+                    <div class="loadingOverlay"></div>
+                    <section class="productCarousel haloSwiper pos-relative o-h"
+                             data-list-name="Product By Tabs"
+                             data-per-view-mob="{{../theme_settings.cardProd_colMob}}"
+                             data-per-view-tab="{{../theme_settings.cardProd_colTab}}"
+                             data-per-view-des="{{../theme_settings.cardProd_col}}"
+                             data-swiper-pag-mob="true"
+                             data-swiper-space-tab="20"
+                             data-swiper-space-des="30"
+                             data-rows-des="1"
+                             data-swiper-nav-tab="true"
+                             data-swiper-nav-des="true"
+                             data-swiper-loop="true"
+                             data-swiper-slides-per-group="1"
+                            >
+                        <div class="swiper-wrapper disable-srollbar">
+                            {{!> components/halothemes/product/halo-product-sample}}
+                            {{!> components/halothemes/product/halo-product-sample}}
+                            {{!> components/halothemes/product/halo-product-sample}}
+                            {{!> components/halothemes/product/halo-product-sample}}
+                            {{> components/reggao/reggao-product-sample}}
+                            {{> components/reggao/reggao-product-sample}}
+                            {{> components/reggao/reggao-product-sample}}
+                            {{> components/reggao/reggao-product-sample}}
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev arrow-custom">
+                            <div class="icon-wrap pos-relative o-h d-flex j-c-center a-i-center w-100 h-100">
+                                <i class="icon-inner icon-fr w-100 h-100">
+                                    <svg><use href="#icon-arrow-prev"></use></svg>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next arrow-custom">
+                            <div class="icon-wrap pos-relative o-h d-flex j-c-center a-i-center w-100 h-100">
+                                <i class="icon-inner icon-fr w-100 h-100">
+                                    <svg><use href="#icon-arrow-next"></use></svg>
+                                </i>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        {{{region name="home_below_products_tab_by_category6"}}}
+    </div>
+</div>
+{{{region name="home_below_products_tab_by_category7"}}}
