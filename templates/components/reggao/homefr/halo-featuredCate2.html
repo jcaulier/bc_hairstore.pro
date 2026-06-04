@@ -5,16 +5,13 @@
                 <h2 class="title o-h featuredBrands__title">
                     <span class="text d-inline-block halo-fadeInUp">{{theme_settings.featuredCate2_title}}</span>
                 </h2>
-                {{#if theme_settings.featuredCate2_viewAll}}
-                    <a class="d-inline-block halo-fadeInUp custom-effet-hover featuredBrands__viewAll pxcate" href="{{theme_settings.featuredCate2_viewAll}}">{{lang 'common.view_all'}}</a>
-                {{/if}}
             </div>
             <div class="haloSwiper pos-relative p-b-56-tb p-b-38-mb" data-per-view-mob="2.2" data-per-view-tab="3.2285" data-per-view-des="5" data-swiper-pag-tab="true" data-swiper-pag-mob="true" data-swiper-space-des="30" data-swiper-space-tab="15">
                 <div class="swiper-wrapper disable-srollbar">
                     <div class="featuredCategories__item swiper-slide hover-zoom">
                         <div class="image o-h b-r-16">
                             <a href="{{theme_settings.featuredCate2_link1}}" class="featuredCategories__img d-inline-block halo-fadeZoom" title="{{theme_settings.featuredCate2_text1}}" aria-label="{{theme_settings.featuredCate2_text1}}">
-                                <img class="w-100 b-r-16" src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/{{theme_settings.featuredCate2_img1}}" title="{{theme_settings.featuredCate2_text1}}" alt="{{theme_settings.featuredCate2_text1}}" />
+                                <img class="w-100 b-r-16" src="{{theme_settings.featuredCate2_img1}}" title="{{theme_settings.featuredCate2_text1}}" alt="{{theme_settings.featuredCate2_text1}}" />
                             </a>
                         </div>
                         <div class="content center o-h">
@@ -24,7 +21,7 @@
                     <div class="featuredCategories__item swiper-slide hover-zoom">
                         <div class="image o-h b-r-16">
                             <a href="{{theme_settings.featuredCate2_link2}}" class="featuredCategories__img d-inline-block halo-fadeZoom" title="{{theme_settings.featuredCate2_text2}}" aria-label="{{theme_settings.featuredCate2_text2}}">
-                                <img class="w-100 b-r-16" src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/{{theme_settings.featuredCate2_img2}}" title="{{theme_settings.featuredCate2_text2}}" alt="{{theme_settings.featuredCate2_text2}}" />
+                                <img class="w-100 b-r-16" src="{{theme_settings.featuredCate2_img2}}" title="{{theme_settings.featuredCate2_text2}}" alt="{{theme_settings.featuredCate2_text2}}" />
                             </a>
                         </div>
                         <div class="content center o-h">
@@ -34,7 +31,7 @@
                     <div class="featuredCategories__item swiper-slide hover-zoom">
                         <div class="image o-h b-r-16">
                             <a href="{{theme_settings.featuredCate2_link3}}" class="featuredCategories__img d-inline-block halo-fadeZoom" title="{{theme_settings.featuredCate2_text3}}" aria-label="{{theme_settings.featuredCate2_text3}}">
-                                <img class="w-100 b-r-16" src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/{{theme_settings.featuredCate2_img3}}" title="{{theme_settings.featuredCate2_text3}}" alt="{{theme_settings.featuredCate2_text3}}" />
+                                <img class="w-100 b-r-16" src="{{theme_settings.featuredCate2_img3}}" title="{{theme_settings.featuredCate2_text3}}" alt="{{theme_settings.featuredCate2_text3}}" />
                             </a>
                         </div>
                         <div class="content center o-h">
@@ -44,7 +41,7 @@
                     <div class="featuredCategories__item swiper-slide hover-zoom">
                         <div class="image o-h b-r-16">
                             <a href="{{theme_settings.featuredCate2_link4}}" class="featuredCategories__img d-inline-block halo-fadeZoom" title="{{theme_settings.featuredCate2_text4}}" aria-label="{{theme_settings.featuredCate2_text4}}">
-                                <img class="w-100 b-r-16" src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/{{theme_settings.featuredCate2_img4}}" title="{{theme_settings.featuredCate2_text4}}" alt="{{theme_settings.featuredCate2_text4}}" />
+                                <img class="w-100 b-r-16" src="{{theme_settings.featuredCate2_img4}}" title="{{theme_settings.featuredCate2_text4}}" alt="{{theme_settings.featuredCate2_text4}}" />
                             </a>
                         </div>
                         <div class="content center o-h">
@@ -54,7 +51,7 @@
                     <div class="featuredCategories__item swiper-slide hover-zoom">
                         <div class="image o-h b-r-16">
                             <a href="{{theme_settings.featuredCate2_link5}}" class="featuredCategories__img d-inline-block halo-fadeZoom" title="{{theme_settings.featuredCate2_text5}}" aria-label="{{theme_settings.featuredCate2_text5}}">
-                                <img class="w-100 b-r-16" src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/{{theme_settings.featuredCate2_img5}}" title="{{theme_settings.featuredCate2_text5}}" alt="{{theme_settings.featuredCate2_text5}}" />
+                                <img class="w-100 b-r-16" src="{{theme_settings.featuredCate2_img5}}" title="{{theme_settings.featuredCate2_text5}}" alt="{{theme_settings.featuredCate2_text5}}" />
                             </a>
                         </div>
                         <div class="content center o-h">
@@ -64,6 +61,11 @@
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
+            {{#if theme_settings.featuredCate2_viewAll}}
+                <div class="featuredCategories__ctaWrap">
+                <a class="d-inline-block featuredBrands__viewAll--cta" href="/categories.php">Voir tout</a>
+            </div>
+            {{/if}}
         </div>
     </div>
 

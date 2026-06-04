@@ -8,17 +8,34 @@ export default class haloSetMegaMenu{
                     disabled: false,
                     label: '',
                     labelType: '',
-                    images: ''
+                    images: '',
+                    menuClass: ''
                 }, param);
 
                 const scope = document.querySelector(`.navPages-list:not(.navPages-list--user) > li:nth-child(${num})`);
+                if (!scope) {
+                    return this;
+                }
 
                 if (!scope.classList.contains('navPages-item-toggle')) {
+                    const subMegaMenu = scope.querySelector('.container');
+                    const navPageSubMenu = scope.querySelector('.navPage-subMenu');
+
                     if (!param.disabled) {
-                        const subMegaMenu = scope.querySelector('.container');
+                        if (!subMegaMenu || !navPageSubMenu) {
+                            return this;
+                        }
 
                         scope.classList.add('has-megamenu');
-                        scope.querySelector('.navPage-subMenu').classList.remove('navPage-subMenu-horizontal');
+                        navPageSubMenu.classList.remove('navPage-subMenu-horizontal');
+
+                        if (param.menuClass) {
+                            param.menuClass.split(' ').forEach((className) => {
+                                if (className) {
+                                    navPageSubMenu.classList.add(className);
+                                }
+                            });
+                        }
 
                         if (!subMegaMenu.querySelector('.imageArea')) {
                             subMegaMenu.insertAdjacentHTML('beforeend', param.images);
@@ -27,13 +44,17 @@ export default class haloSetMegaMenu{
                         subMegaMenu.classList.add('haloCustomScrollbar');
                     } else {
                         const navPagesAction = scope.querySelector('.navPages-action');
+                        const navPagesActionText = navPagesAction && navPagesAction.querySelector('.text');
+                        if (!navPagesActionText) {
+                            return this;
+                        }
 
                         if (param.labelType === 'new') {
-                            navPagesAction.querySelector('.text').insertAdjacentHTML('beforeend', `<span class="navPages-label new-label">${param.label}</span>`);
+                            navPagesActionText.insertAdjacentHTML('beforeend', `<span class="navPages-label new-label">${param.label}</span>`);
                         } else if (param.labelType === 'sale') {
-                            navPagesAction.querySelector('.text').insertAdjacentHTML('beforeend', `<span class="navPages-label sale-label">${param.label}</span>`);
+                            navPagesActionText.insertAdjacentHTML('beforeend', `<span class="navPages-label sale-label">${param.label}</span>`);
                         } else if (param.labelType === 'hot') {
-                            navPagesAction.querySelector('.text').insertAdjacentHTML('beforeend', `<span class="navPages-label hot-label">${param.label}</span>`);
+                            navPagesActionText.insertAdjacentHTML('beforeend', `<span class="navPages-label hot-label">${param.label}</span>`);
                         }
                     }
                 }

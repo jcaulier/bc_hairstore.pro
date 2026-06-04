@@ -31,11 +31,6 @@
                         </a>
                     </li>
                     <li class="o-h">
-                        <a class="link-line d-inline-block halo-fadeInUp" href="/acces-coiffeur/" data-halo-animate="2">
-                            <span>{{lang 'footer.access'}}</span>
-                        </a>
-                    </li>
-                    <li class="o-h">
                         <a class="link-line d-inline-block halo-fadeInUp" href="/livraison" data-halo-animate="2">
                             <span>{{lang 'footer.shipping'}}</span>
                         </a>
@@ -99,7 +94,15 @@
                             <li class="o-h"><a class="link-line d-inline-block halo-fadeInUp" href="{{theme_settings.footer_link2}}" data-halo-animate="2"><span>{{theme_settings.footer_text2}}</span></a></li>
                         {{/if}}
                         {{#if theme_settings.footer_text3}}
-                            <li class="o-h"><a class="link-line d-inline-block halo-fadeInUp" href="{{theme_settings.footer_link3}}" data-halo-animate="2"><span>{{theme_settings.footer_text3}}</span></a></li>
+                            {{#if theme_settings.footer_link3 '==' '/blog/'}}
+                                <li class="o-h"><a class="link-line d-inline-block halo-fadeInUp" href="https://hairstore.fr/blog-coiffure/" target="_blank" rel="noopener noreferrer" data-halo-animate="2"><span>{{theme_settings.footer_text3}}</span></a></li>
+                            {{else if theme_settings.footer_link3 '==' '/blog-coiffure/'}}
+                                <li class="o-h"><a class="link-line d-inline-block halo-fadeInUp" href="https://hairstore.fr/blog-coiffure/" target="_blank" rel="noopener noreferrer" data-halo-animate="2"><span>{{theme_settings.footer_text3}}</span></a></li>
+                            {{else if theme_settings.footer_link3 '==' 'https://hairstore.fr/blog-coiffure/'}}
+                                <li class="o-h"><a class="link-line d-inline-block halo-fadeInUp" href="https://hairstore.fr/blog-coiffure/" target="_blank" rel="noopener noreferrer" data-halo-animate="2"><span>{{theme_settings.footer_text3}}</span></a></li>
+                            {{else}}
+                                <li class="o-h"><a class="link-line d-inline-block halo-fadeInUp" href="{{theme_settings.footer_link3}}" data-halo-animate="2"><span>{{theme_settings.footer_text3}}</span></a></li>
+                            {{/if}}
                         {{/if}}
                         {{#if theme_settings.footer_text4}}
                             <li class="o-h"><a class="link-line d-inline-block halo-fadeInUp" href="{{theme_settings.footer_link4}}" data-halo-animate="2"><span>{{theme_settings.footer_text4}}</span></a></li>
@@ -129,12 +132,16 @@
             {{/and}}
             {{#or theme_settings.footer_info_5_heading theme_settings.footer_info_5_heading}}
                 <article class="footer-info-col footer-info-col--small" data-section-type="footer-social">
-                    {{#if theme_settings.footer_info_5_heading}}
-                        <p class="footer-info-heading p-0 f-bold m-b f-size-small-mb o-h"><span class="d-inline-block halo-fadeInUp">{{theme_settings.footer_info_5_heading}}</span></p>
-                        <div class="footer-social m-b-32 o-h">
+                        {{#if theme_settings.footer_info_5_heading}}
+                        <p class="footer-info-heading p-0 f-bold f-size-small-mb o-h footer-payment-title"><span class="d-inline-block halo-fadeInUp">{{theme_settings.footer_info_5_heading}}</span></p>
+                        <div class="footer-payment-info-text text-center">
+                            <p><strong>Le paiement est 100% sécurisé.</strong></p>
+                            <p>À aucun moment nous n'avons accès à vos données bancaires.</p>
+                            <p>Sur hairStore.pro, vous avez le choix parmi plusieurs moyens de paiement sécurisés pour régler vos commandes en toute sérénité :</p>
+                        </div>
+                        <div class="footer-social footer-payment-social m-b-32 o-h">
                             <div class="footer-social-wrapper halo-fadeInUp" data-halo-animate="2">
                                 {{> components/common/payment-icons}}
-                                <br>
 
                                 <div id="DigiCertClickID_rJrKyUK6"></div>
 

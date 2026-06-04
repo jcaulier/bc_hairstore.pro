@@ -144,12 +144,12 @@
                                 tabindex="-1"
                                 data-image-gallery-item
                                 data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
-                                data-image-gallery-new-image-srcset="{{getImageSrcset this 1x=fallback_size}}"
+                                data-image-gallery-new-image-srcset="{{getImageSrcset this 1x=../theme_settings.product_size}}"
                                 data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
                             >
                                 {{> components/common/responsive-img
                                     image=this
-                                    fallback_size=../theme_settings.productview_thumb_size
+                                    fallback_size=../theme_settings.gallery_size
                                     lazyload=../theme_settings.lazyload_mode
                                     class="w-100"
                                 }}

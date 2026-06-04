@@ -92,19 +92,11 @@
                     <span class="cart-item-label">{{lang 'cart.checkout.price'}}</span>
                     {{#or ../customer (unless ../settings.hide_price_from_guests) (if type '==' 'GiftCertificate')}}
                         <span class="cart-item-value {{#if price_discounted}}price--discounted{{/if}}">
-                            {{#if price.value}}
-                                {{money (divide price.value 1.2)}} HT
-                            {{else}}
-                                {{price.formatted}} TTC
-                            {{/if}}
+                            {{price.formatted}} HT
                         </span>
                         {{#if price_discounted}}
                             <span class="cart-item-value">
-                                {{#if price_discounted.value}}
-                                    {{money (divide price_discounted.value 1.2)}} HT
-                                {{else}}
-                                    {{price_discounted.formatted}} TTC
-                                {{/if}}
+                                {{price_discounted.formatted}} HT
                             </span>
                         {{/if}}
                     {{else}}
@@ -157,19 +149,11 @@
                     <span class="cart-item-label">{{lang 'cart.checkout.total'}}</span>
                     {{#or ../customer (unless ../settings.hide_price_from_guests) (if type '==' 'GiftCertificate')}}
                         <strong class="cart-item-value {{#if total_discounted}}price--discounted{{/if}}">
-                            {{#if total.value}}
-                                {{money (divide total.value 1.2)}} HT
-                            {{else}}
-                                {{total.formatted}} TTC
-                            {{/if}}
+                            {{total.formatted}} HT
                         </strong>
                         {{#if total_discounted}}
                             <strong class="cart-item-value">
-                                {{#if total_discounted.value}}
-                                    {{money (divide total_discounted.value 1.2)}} HT
-                                {{else}}
-                                    {{total_discounted.formatted}} TTC
-                                {{/if}}
+                                {{total_discounted.formatted}} HT
                             </strong>
                         {{/if}}
                     {{else}}

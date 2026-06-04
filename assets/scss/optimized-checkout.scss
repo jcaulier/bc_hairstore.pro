@@ -27,14 +27,22 @@
     background-size: cover;
     border-color: stencilColor("optimizedCheckout-header-borderColor");
     color: stencilColor("optimizedCheckout-header-textColor");
+    text-align: center;
 
     //
     // TODO:
     // Configure media query to be 'desktop' breakpoint size
     // -----------------------------------------------------------------------------
     @media (min-width: 801px) {
-        text-align: stencilString("optimizedCheckout-logo-position");
+        text-align: center;
     }
+}
+
+.optimizedCheckout-header .checkoutHeader-content,
+.optimizedCheckout-header .checkoutHeader-heading,
+.optimizedCheckout-header .checkoutHeader-link {
+    text-align: center;
+    margin-inline: auto;
 }
 
 //
@@ -46,14 +54,14 @@
 
 .optimizedCheckout-headingPrimary {
     color: stencilColor("optimizedCheckout-headingPrimary-color");
-    font-family: stencilFontFamily("optimizedCheckout-headingPrimary-font"), Arial, Helvetica, sans-serif;
-    font-weight: stencilFontWeight("optimizedCheckout-headingPrimary-font");
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 700;
 }
 
 .optimizedCheckout-headingSecondary {
     color: stencilColor("optimizedCheckout-headingSecondary-color");
-    font-family: stencilFontFamily("optimizedCheckout-headingSecondary-font"), Arial, Helvetica, sans-serif;
-    font-weight: stencilFontWeight("optimizedCheckout-headingSecondary-font");
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 700;
 }
 
 //
@@ -71,23 +79,33 @@ body {
     color: stencilColor("optimizedCheckout-contentPrimary-color");
 }
 
-//
-// Primary & Secondary Content
-// Text Color & Typography
-// .optimizedCheckout-contentPrimary styles body text in the Order Summary/Order Confirmation; drop-down-list items; and text that summarizes completed steps.
-// .optimizedCheckout-contentSecondary styles check boxes' text labels, and lower-level text in the Order Summary.
-// -----------------------------------------------------------------------------
-
 .optimizedCheckout-contentPrimary {
     color: stencilColor("optimizedCheckout-contentPrimary-color");
-    font-family: stencilFontFamily("optimizedCheckout-contentPrimary-font"), Arial, Helvetica, sans-serif;
-    font-weight: stencilFontWeight("optimizedCheckout-contentPrimary-font");
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 400;
 }
 
 .optimizedCheckout-contentSecondary {
     color: stencilColor("optimizedCheckout-contentSecondary-color");
-    font-family: stencilFontFamily("optimizedCheckout-contentSecondary-font"), Arial, Helvetica, sans-serif;
-    font-weight: stencilFontWeight("optimizedCheckout-contentSecondary-font");
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+//
+// Links
+// Text Color & Typography
+// -----------------------------------------------------------------------------
+
+a,
+a:visited {
+    color: #000000;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+a:focus,
+a:hover {
+    color: #000000;
 }
 
 //
@@ -100,8 +118,8 @@ body {
     background-color: stencilColor("optimizedCheckout-buttonPrimary-backgroundColor");
     border-color: stencilColor("optimizedCheckout-buttonPrimary-borderColor");
     color: stencilColor("optimizedCheckout-buttonPrimary-color");
-    font-family: stencilFontFamily("optimizedCheckout-buttonPrimary-font"), Arial, Helvetica, sans-serif;
-    font-weight: stencilFontWeight("optimizedCheckout-buttonPrimary-font");
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 400;
 
     &:focus,
     &:hover {
@@ -143,8 +161,19 @@ body {
     background-color: stencilColor("optimizedCheckout-buttonSecondary-backgroundColor");
     border-color: stencilColor("optimizedCheckout-buttonSecondary-borderColor");
     color: stencilColor("optimizedCheckout-buttonSecondary-color");
-    font-family: stencilFontFamily("optimizedCheckout-buttonSecondary-font"), Arial, Helvetica, sans-serif;
-    font-weight: stencilFontWeight("optimizedCheckout-buttonSecondary-font");
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+
+    &[data-test="step-edit-button"],
+    &[data-test*="edit"] {
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+    }
+
+    &[data-test="sign-out-link"] {
+        text-decoration: none;
+    }
 
     &:focus,
     &:hover {
@@ -173,22 +202,6 @@ body {
         background-color: stencilColor("optimizedCheckout-buttonPrimary-backgroundColorDisabled");
         border-color: stencilColor("optimizedCheckout-buttonPrimary-borderColorDisabled");
         color: stencilColor("optimizedCheckout-buttonPrimary-colorDisabled");
-    }
-}
-
-//
-// Links
-// Text Color & Typography
-// -----------------------------------------------------------------------------
-
-a {
-    color: stencilColor("optimizedCheckout-link-color");
-    font-family: stencilFontFamily("optimizedCheckout-link-font"), Arial, Helvetica, sans-serif;
-    font-weight: stencilFontWeight("optimizedCheckout-link-font");
-
-    &:focus,
-    &:hover {
-        color: stencilColor("optimizedCheckout-link-hoverColor");
     }
 }
 

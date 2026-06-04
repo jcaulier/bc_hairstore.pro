@@ -48,6 +48,16 @@
             {{lang 'products.adding_to_cart'}} {{lang 'category.add_cart_announcement'}}
         </span>
 
+        {{#if product.can_purchase}}
+            {{#each product.custom_fields}}
+                {{#if name '===' 'selective_brand'}}
+                    {{#if value '===' '1'}}
+                        {{> components/products/selective-brand-notice}}
+                    {{/if}}
+                {{/if}}
+            {{/each}}
+        {{/if}}
+
         <!--{{#if this.with_wallet_buttons}}
             <div class="add-to-cart-wallet-buttons" data-add-to-cart-wallet-buttons>
                 {{> components/common/wallet-buttons}}

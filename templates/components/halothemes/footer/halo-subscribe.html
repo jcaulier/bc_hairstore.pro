@@ -18,7 +18,7 @@
 
 
 {{#if theme_settings.subscribe}}
-<article class="footer-info-col" data-section-type="footer-social">
+<article class="footer-info-col footer-follow-social" data-section-type="footer-social">
     <p class="footer-info-heading footer-info-heading--toggle f-bold f-size-small-mb o-h">
         <span class="d-inline-block halo-fadeInUp">RETROUVEZ NOUS SUR</span>
     </p>
@@ -26,7 +26,21 @@
     <div class="footer-info-list"> <!-- nécessaire pour les toggles mobiles -->
 
         <div class="footer-social-wrapper halo-fadeInUp" data-halo-animate="2">
-            {{> components/common/social-links}}
+            <ul class="socialLinks socialLinks--alt">
+                <li class="socialLinks-item">
+                    <a class="icon icon--instagram"
+                       href="https://www.instagram.com/hairstore.pro"
+                       target="_blank"
+                       rel="noopener"
+                       title="Instagram"
+                    >
+                        <span class="aria-description--hidden">Instagram</span>
+                        <svg>
+                            <use href="#icon-instagram"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <p class="link-line d-inline-block halo-fadeInUp" data-halo-animate="2">

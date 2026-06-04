@@ -43,18 +43,10 @@
                         <span class="previewCartItem-price l-h-n m-b-8">
                             {{#or ../customer (unless ../settings.hide_price_from_guests)}}
                                 <span{{#if price_discounted}} class="price--discounted"{{/if}}>
-                                    {{#if price.value}}
-                                        {{money (divide price.value 1.2)}} <span class="previewCart-tax-label">HT</span>
-                                    {{else}}
-                                        {{price.formatted}} <span class="previewCart-tax-label">TTC</span>
-                                    {{/if}}
+                                    {{price.formatted}} <span class="previewCart-tax-label">HT</span>
                                 </span>
                                 {{#if price_discounted}}
-                                    {{#if price_discounted.value}}
-                                        {{money (divide price_discounted.value 1.2)}} <span class="previewCart-tax-label">HT</span>
-                                    {{else}}
-                                        {{price_discounted.formatted}} <span class="previewCart-tax-label">TTC</span>
-                                    {{/if}}
+                                    {{price_discounted.formatted}} <span class="previewCart-tax-label">HT</span>
                                 {{/if}}
                             {{else}}
                                 {{> components/common/login-for-pricing}}
@@ -121,11 +113,7 @@
                 </div>
                 <div class="previewCartTotals-value f-root">
                     {{#or customer (unless settings.hide_price_from_guests)}}
-                        {{#if cart.sub_total.value}}
-                            {{money (divide cart.sub_total.value 1.2)}}
-                        {{else}}
-                            {{cart.sub_total.formatted}}
-                        {{/if}}
+                        {{cart.sub_total.formatted}}
                     {{else}}
                         {{> components/common/login-for-pricing}}
                     {{/or}}

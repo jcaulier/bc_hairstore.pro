@@ -66,6 +66,7 @@
         margin-bottom: 30px;
     
         &[data-section-type="footer-social"] {
+            margin-bottom: 0;
 
             border-top: 1px solid $color-textSecondary;
     
@@ -218,6 +219,18 @@ address,
 }
 
 .footer-payment-icons {
+    .footer-payment-custom-image {
+        display: block;
+        max-width: 100%;
+        width: 350px;
+        height: auto;
+
+        @media (min-width: 1025px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
     .footer-payment-icon {
         height: remCalc(26);
         margin: 4px;
@@ -234,6 +247,57 @@ address,
     svg {
         fill: stencilColor("icon-color");
     }
+}
+
+.footer-bottom-title {
+    @include smax-xs {
+        margin-top: 0;
+        padding-top: 0;
+    }
+}
+
+.footer-follow-social {
+    @include smax-xs {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+
+        .socialLinks {
+            margin-bottom: 0;
+        }
+
+        .newsletter-form {
+            margin-bottom: 0;
+        }
+
+        .footer-info-list {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.footer-payment-info-text {
+    color: $footer-heading-fontColor;
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 80%;
+
+    p {
+        margin: 0 0 6px;
+        line-height: 1.45;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.footer-bottom-content {
+    padding-top: 0;
+}
+
+.footer-payment-title {
+    margin-bottom: 12px;
+    font-size: 133.333%;
 }
 
 .footer-app {

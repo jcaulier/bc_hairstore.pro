@@ -42,6 +42,21 @@
                     custom_fields=product.custom_fields
                     out_of_stock_message=product.out_of_stock_message
                 }}
+
+    {{#or customer (unless settings.hide_price_from_guests)}}
+    {{#if product.price.with_tax}}
+      {{#if product.price.rrp_with_tax}}
+          <div class="promo-card-product promo-card--pdp">
+            - {{round (divide (multiply (subtract product.price.rrp_with_tax.value product.price.with_tax.value) 100) product.price.rrp_with_tax.value)}}%
+          </div>
+      {{else if product.price.non_sale_price_with_tax}}
+          <div class="promo-card-product promo-card--pdp">
+            - {{round (divide (multiply (subtract product.price.non_sale_price_with_tax.value product.price.with_tax.value) 100) product.price.non_sale_price_with_tax.value)}}%
+          </div>
+      {{/if}}
+    {{/if}}
+    {{/or}}
+
                 <div class="productView-nav pos-relative">
                     {{#if product.images.length '>' 1 }}
                         {{> components/carousel-content-announcement}}

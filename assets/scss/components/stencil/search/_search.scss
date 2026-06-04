@@ -355,8 +355,12 @@
 .search-nav {
     display: flex;
     justify-content: center;
-    margin: 30px 0 30px 0;
+    margin: 50px 0 0 0;
     position: relative;
+
+    .navBar-section.account-navigation {
+        display: none;
+    }
 
     .navBar-section {
         width: 100%;
@@ -400,8 +404,8 @@
     }
 
     @include smin-m {
-        margin-top: 55px;
-        margin-bottom: 55px;
+        margin-top: 50px;
+        margin-bottom: 0;
     }
 }
 

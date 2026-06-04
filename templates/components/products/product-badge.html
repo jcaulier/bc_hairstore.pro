@@ -8,21 +8,23 @@
             {{/if}}
         {{/each}}
         {{#or price.rrp_with_tax price.rrp_without_tax price.non_sale_price_with_tax price.non_sale_price_without_tax}}
-            <div class="sale-badge halo-badge center">
-                {{#if theme_settings.sale_badges_type '==' 'percent'}}
-                    {{#if price.rrp_with_tax}}
-                        <span class="text f-root f-size-small-tb f-size-tiny-mb">{{lang 'products.sale_label'}}{{round (subtract 100 (multiply (divide price.with_tax.value price.rrp_with_tax.value) 100)) 0}}%</span>
-                    {{else if price.non_sale_price_with_tax}}
-                        <span class="text f-root f-size-small-tb f-size-tiny-mb">{{lang 'products.sale_label'}}{{round (subtract 100 (multiply (divide price.with_tax.value price.non_sale_price_with_tax.value) 100)) 0}}%</span>
-                    {{else if price.rrp_without_tax}}
-                        <span class="text f-root f-size-small-tb f-size-tiny-mb">{{lang 'products.sale_label'}}{{round (subtract 100 (multiply (divide price.without_tax.value price.rrp_without_tax.value) 100)) 0}}%</span>
-                    {{else if price.non_sale_price_without_tax}}
-                        <span class="text f-root f-size-small-tb f-size-tiny-mb">{{lang 'products.sale_label'}}{{round (subtract 100 (multiply (divide price.without_tax.value price.non_sale_price_without_tax.value) 100)) 0}}%</span>
-                    {{/if}}
-                {{else}}
-                    <span class="text f-root f-size-small-tb f-size-tiny-mb">Promo</span>
+            {{#if theme_settings.sale_badges_type '==' 'percent'}}
+            <div class="sale-badge halo-badge center sale-badge--percent">
+                {{#if price.rrp_with_tax}}
+                    <span class="text f-root f-size-small-tb f-size-tiny-mb">{{lang 'products.sale_label'}}{{round (subtract 100 (multiply (divide price.with_tax.value price.rrp_with_tax.value) 100)) 0}}%</span>
+                {{else if price.non_sale_price_with_tax}}
+                    <span class="text f-root f-size-small-tb f-size-tiny-mb">{{lang 'products.sale_label'}}{{round (subtract 100 (multiply (divide price.with_tax.value price.non_sale_price_with_tax.value) 100)) 0}}%</span>
+                {{else if price.rrp_without_tax}}
+                    <span class="text f-root f-size-small-tb f-size-tiny-mb">{{lang 'products.sale_label'}}{{round (subtract 100 (multiply (divide price.without_tax.value price.rrp_without_tax.value) 100)) 0}}%</span>
+                {{else if price.non_sale_price_without_tax}}
+                    <span class="text f-root f-size-small-tb f-size-tiny-mb">{{lang 'products.sale_label'}}{{round (subtract 100 (multiply (divide price.without_tax.value price.non_sale_price_without_tax.value) 100)) 0}}%</span>
                 {{/if}}
             </div>
+            {{else}}
+            <div class="sale-badge halo-badge center sale-badge--promo">
+                    <span class="text f-root f-size-small-tb f-size-tiny-mb">Promo</span>
+            </div>
+            {{/if}}
         {{/or}}
         {{#each custom_fields}}
             {{#if name '===' '__customlabel'}}

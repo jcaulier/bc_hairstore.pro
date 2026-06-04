@@ -101,6 +101,20 @@
         right: 50%;
         transform: translateX(remCalc(10px));
     }
+
+    &.close-reveal-modal {
+        &:hover::before,
+        &:hover::after {
+            display: block;
+        }
+
+        &:focus::before,
+        &:focus::after,
+        &:focus-visible::before,
+        &:focus-visible::after {
+            display: none;
+        }
+    }
 }
 
 .modal-body {

@@ -6,6 +6,10 @@ h2 {
     font-family: 'SF Old Republic' !important;
 }
 
+.page-type-home .body {
+    overflow-x: hidden;
+}
+
 
 //Style top homepage 
 .login-section-container-top-home {
@@ -234,6 +238,68 @@ h2 {
 .featuredBrands .featuredBrands__viewAll {
     font-weight: 500;
     text-decoration: none;
+}
+
+.featuredCategories__ctaWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 24px auto 0 !important;
+    text-align: center;
+}
+
+.featuredBrands__viewAll--cta {
+    margin: 0 auto !important;
+    display: inline-block !important;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #fff;
+    padding: 8px 24px;
+    border: 1px solid #000;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.featuredBrands__ctaWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 24px auto 0 !important;
+    text-align: center;
+}
+
+.featuredBrands__viewAll--cta:hover,
+.featuredBrands__viewAll--cta:focus-visible {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.featuredBrands__ctaWrap .featuredBrands__viewAll--cta {
+    margin: 0 auto !important;
+}
+
+.featuredCategories__ctaWrap .featuredBrands__viewAll--cta {
+    margin: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+    .featuredBrands .haloSwiper.p-b-48-mb {
+        padding-bottom: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .featuredBrands__ctaWrap {
+        margin: 4px auto 0 !important;
+    }
+
+    .featuredCategories__ctaWrap {
+        margin: 29px auto 0 !important;
+    }
 }
 
 //Style halo product block, onglet du haut:
@@ -698,10 +764,12 @@ input[name="tabset"]#tab-new:checked ~ .halo-product-tab-content-wrapper #conten
 //Dimension carrousel page d'accueil
 
 #bc-carousel-container-e24e4986-497b-4a19-a0fc-fd6a491ec2ff {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 60vh;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 #bc-carousel-e24e4986-497b-4a19-a0fc-fd6a491ec2ff {
@@ -783,6 +851,12 @@ button[data-test-id="carousel-right-arrow"] svg path {
 
 .bc-carousel__arrow--right {
     margin-right: 20px !important;
+}
+
+#bc-carousel-container-e24e4986-497b-4a19-a0fc-fd6a491ec2ff .bc-carousel__arrow--left,
+[data-widget-id="e24e4986-497b-4a19-a0fc-fd6a491ec2ff"] .bc-carousel__arrow--left {
+    margin-left: 20px !important;
+    left: 0 !important;
 }
   
 
@@ -1027,7 +1101,7 @@ button[data-test-id="carousel-right-arrow"] svg path {
     padding: 6px 7px 6px;
     font-weight: 600;
     font-size: 16px;
-    z-index: 9000;
+    z-index: 5;
 }
 
 
@@ -1591,6 +1665,115 @@ article.card:hover {
     margin-bottom: 30px;
 }
 
+.productView--quickView .add-to-cart-row {
+    flex-wrap: nowrap;
+}
+
+.productView--quickView .card-wishlist,
+.productView--quickView .wishlist-action {
+    flex: 0 0 auto;
+    min-width: auto;
+}
+
+.productView--quickView .wishlist-action .js-wishlist {
+    white-space: nowrap;
+    width: 54px;
+    min-width: 54px;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.productView--quickView .wishlist-action .js-wishlist .wishlist-text,
+.productView--quickView .wishlist-action .js-wishlist .wishlist-arrow {
+    display: none;
+}
+
+.productView--quickView .wishlist-action .js-wishlist.button--secondary {
+    border: 0;
+    box-shadow: none;
+}
+
+.productView--quickView .wishlist-menu {
+    top: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: none !important;
+    height: auto !important;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.productView--quickView .wishlist-menu.animated {
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+.productView--quickView .wishlist-menu.animated--out {
+    max-height: 0 !important;
+    overflow: hidden;
+}
+
+.productView--quickView .wishlist-menu li {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.productView--quickView .wishlist-menu li:first-child,
+.productView--quickView .wishlist-menu li:last-child {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.productView--quickView .wishlist-menu .js-add-to-wishlist,
+.productView--quickView .wishlist-menu a {
+    padding: 8px 0;
+}
+
+.productView--quickView .wishlist-action .wishlist-icon {
+    width: 33px;
+    height: 33px;
+    min-width: 33px;
+    min-height: 33px;
+}
+
+.productView--quickView .wishlist-action .js-wishlist {
+    width: 36px;
+    min-width: 36px;
+}
+
+.productView--quickView .productView-securityImage {
+    display: none;
+}
+
+.navUser-action--currencySelector.link-line.has-dropdown {
+    display: none;
+}
+
+.navUser-item--currency {
+    display: none;
+}
+
+.has-activeQuickViewModal .modal .modal-close.close-reveal-modal {
+    &:focus,
+    &:focus-visible {
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+
+    &:hover::before,
+    &:hover::after {
+        display: block;
+    }
+}
+
 .add-to-cart-row > div {
     margin: 0;
 }
@@ -2083,41 +2266,536 @@ article.card:hover {
 //Gestion taille image menue marques
 @media (min-width: 1025px) {
     /* Marques */
-#navPages-2678 .imageArea img {
-    min-height: 700px;
-    height: auto;
-    object-fit: cover;
+  #navPages-2678.navPage-subMenu {
+    box-shadow: 0 10px 14px -10px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  #navPages-2678.navPage-subMenu .container {
+    max-width: 1680px;
+    padding: 0 28px;
+    box-sizing: border-box;
+  }
+
+  #navPages-2678.navPage-subMenu .container > .navPage-subMenu-list {
+    column-count: initial;
+    width: 100%;
+  }
+
+  #navPages-2678 .custom-brand-menu {
+    width: 100% !important;
+    max-width: 1580px !important;
+  }
+
+  #navPages-2678 .custom-brand-menu .navPage-subMenu-action {
+    display: block;
+    padding: 0;
+  }
+
+  #navPages-2678 .custom-marques-row {
+    gap: 14px;
+    padding: 4px 0 8px;
+  }
+
+  #navPages-2678 .brand-box {
+    border-radius: 8px;
+    padding: 14px;
+  }
+
+  #navPages-2678 .brand-box img {
+    height: 78px;
+  }
+
+  #navPages-2678 .custom-brand-list {
+    display: block;
+    column-count: 4;
+    column-gap: 34px;
+    margin-top: 22px;
+  }
+
+  #navPages-2678 .brand-col {
+    display: contents;
+  }
+
+  #navPages-2678 .brand-letter-block {
+    break-inside: avoid;
+    margin-bottom: 13px;
+  }
+
+  #navPages-2678 .brand-letter-block .letter {
+    font-size: 24px;
+    width: 24px;
+  }
+
+  #navPages-2678 .brand-letter-block .separator {
+    margin: 0 9px;
+  }
+
+  #navPages-2678 .brand-letter-block li {
+    font-size: 15px;
+    line-height: 1.32;
+    margin-bottom: 3px;
   }
   
   /* Coloration et Forme */
-  #navPages-3415 .imageArea img {
-    min-height: 200px;
-    height: auto;
-    object-fit: cover;
-    max-height: 250px;
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme {
+    box-shadow: 0 10px 14px -10px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
   }
-  
-  /* Produits de Coiffure */
-  #navPages-2680 .imageArea img {
-    min-height: 575px;
-    height: auto;
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    max-width: 1600px;
+    padding: 0 28px;
+    box-sizing: border-box;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .container > .navPage-subMenu-list {
+    column-count: initial;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    gap: 22px 28px;
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .mega-col {
+    min-width: 0;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .nav-mega-title {
+    font-size: 15px;
+    line-height: 1.25;
+    margin-bottom: 9px;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .nav-mega-subitem {
+    font-size: 14px;
+    line-height: 1.45;
+    margin: 0 0 6px;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .mega-menu-card-area {
+    flex: 0 1 960px;
+    width: 58vw;
+    max-width: 960px;
+    padding: 0;
+    margin: 0;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .mega-menu-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .mega-menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    min-width: 0;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .mega-menu-card-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 300 / 425;
+    overflow: hidden;
+    background: #f7f7f7;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .mega-menu-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
     object-fit: cover;
   }
 
-  /* Matériel de coiffure */
-  #navPages-2679 .imageArea img {
-    min-height: 200px;
-    height: auto;
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .mega-menu-card-title {
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  #navPages-3415.navPage-subMenu.mega-menu-coloration-forme .mega-menu-card-cta {
+    margin-top: 8px;
+    min-width: 96px;
+    padding: 4px 18px;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  
+  /* Produits de Coiffure */
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure {
+    box-shadow: 0 10px 14px -10px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    max-width: 1600px;
+    padding: 0 28px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .container > .navPage-subMenu-list {
+    column-count: initial;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(120px, 1fr));
+    grid-template-rows: repeat(3, auto);
+    gap: 24px 28px;
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .container > .navPage-subMenu-list > div.mega-col:nth-of-type(6) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .container > .navPage-subMenu-list > div.mega-col:nth-of-type(4) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .container > .navPage-subMenu-list > div.mega-col:nth-of-type(5) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .container > .navPage-subMenu-list > div.mega-col:nth-of-type(3) {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .container > .navPage-subMenu-list > div.mega-col:nth-of-type(1) {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .container > .navPage-subMenu-list > div.mega-col:nth-of-type(2) {
+    grid-column: 4;
+    grid-row: 1 / span 3;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .mega-col {
+    min-width: 0;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .nav-mega-title {
+    font-size: 14px;
+    line-height: 1.22;
+    margin-bottom: 8px;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .nav-mega-subitem {
+    font-size: 13px;
+    line-height: 1.35;
+    margin: 0 0 4px;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .mega-menu-card-area {
+    flex: 0 0 300px;
+    width: 300px;
+    padding: 0;
+    margin: 0;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .mega-menu-card-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .mega-menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    min-width: 0;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .mega-menu-card-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 300 / 425;
+    overflow: hidden;
+    background: #f7f7f7;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .mega-menu-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
     object-fit: cover;
-    max-height: 250px;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .mega-menu-card-title {
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  #navPages-2680.navPage-subMenu.mega-menu-produits-coiffure .mega-menu-card-cta {
+    margin-top: 8px;
+    min-width: 96px;
+    padding: 4px 18px;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  /* Matériel de coiffure */
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure {
+    box-shadow: 0 10px 14px -10px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 34px;
+    max-width: 1600px;
+    padding: 0 28px;
+    box-sizing: border-box;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .container > .navPage-subMenu-list {
+    column-count: initial;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(170px, 1fr));
+    gap: 22px 28px;
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .mega-col {
+    min-width: 0;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .nav-mega-title {
+    font-size: 15px;
+    line-height: 1.25;
+    margin-bottom: 9px;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .nav-mega-subitem {
+    font-size: 14px;
+    line-height: 1.45;
+    margin: 0 0 6px;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .mega-menu-card-area {
+    flex: 0 1 900px;
+    width: 56vw;
+    max-width: 900px;
+    padding: 0;
+    margin: 0;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .mega-menu-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .mega-menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    min-width: 0;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .mega-menu-card-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 300 / 425;
+    overflow: hidden;
+    background: #f7f7f7;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .mega-menu-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    object-fit: cover;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .mega-menu-card-title {
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  #navPages-2679.navPage-subMenu.mega-menu-materiel-coiffure .mega-menu-card-cta {
+    margin-top: 8px;
+    min-width: 96px;
+    padding: 4px 18px;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.2;
   }
   
   /* Beauté */
-  #navPages-2677 .imageArea img {
-    min-height: 200px;
-    height: auto;
+  #navPages-2677.navPage-subMenu.mega-menu-beaute {
+    box-shadow: 0 10px 14px -10px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 34px;
+    max-width: 1600px;
+    padding: 0 28px;
+    box-sizing: border-box;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .container > .navPage-subMenu-list {
+    column-count: initial;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    gap: 22px 28px;
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .mega-col {
+    min-width: 0;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .nav-mega-title {
+    font-size: 15px;
+    line-height: 1.25;
+    margin-bottom: 9px;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .nav-mega-subitem {
+    font-size: 14px;
+    line-height: 1.45;
+    margin: 0 0 6px;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .mega-menu-card-area {
+    flex: 0 1 900px;
+    width: 56vw;
+    max-width: 900px;
+    padding: 0;
+    margin: 0;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .mega-menu-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .mega-menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    min-width: 0;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .mega-menu-card-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 300 / 425;
+    overflow: hidden;
+    background: #f7f7f7;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .mega-menu-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
     object-fit: cover;
-    max-height: 250px;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .mega-menu-card-title {
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  #navPages-2677.navPage-subMenu.mega-menu-beaute .mega-menu-card-cta {
+    margin-top: 8px;
+    min-width: 96px;
+    padding: 4px 18px;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.2;
   }
   
 }
@@ -2269,6 +2947,8 @@ article.card:hover {
 
 .productView-for {
     position: relative;
+    margin: 12px 0;
+    padding: 8px 20px;
   }
   
   .productView-for .swiper-wrapper {
@@ -2276,6 +2956,25 @@ article.card:hover {
     overflow: visible;                
     transition: transform 0.3s ease;  
 
+  }
+
+  .productView-for .swiper-slide {
+    height: auto;
+  }
+
+  .productView-for [data-image-gallery-item] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .productView-for [data-image-gallery-item] img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   
   .productView-thumb-nav {
@@ -2321,6 +3020,11 @@ article.card:hover {
   }
   
   @media (max-width: 1024px) {
+    .productView-for {
+      margin: 10px 0;
+      padding: 8px 10px;
+    }
+
     .productView-thumb-nav {
       display: none;
     }
@@ -2582,10 +3286,24 @@ li.navPages-item.has-dropdown.has-image.has-megamenu
     }
 }
 
-
-    .pxcate {
-        bottom: 5px;
+@media (min-width: 1024px) {
+    .featuredBrands__ctaWrap {
+        justify-content: center;
+        text-align: center;
     }
+
+    .featuredBrands__ctaWrap .featuredBrands__viewAll--cta {
+        display: inline-flex !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+.pxcate {
+    bottom: 5px;
+}
 
     .custom-file-upload-wrapper {
     display: flex;
@@ -2763,10 +3481,12 @@ li.navPages-item.has-dropdown.has-image.has-megamenu
 
 // CARROUSEL HAIRSTORE FR
 #bc-carousel-container-914c3865-778c-4a57-b727-583bf958718a {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 60vh;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 #bc-carousel-914c3865-778c-4a57-b727-583bf958718a {
@@ -3029,22 +3749,52 @@ li.navPages-item.has-dropdown.has-image.has-megamenu
 }
 
 
-@media (min-width: 1025px) and (max-width: 1600px) {
-  .navPage-subMenu .imageArea {
-    display: none !important;
+@media (min-width:1025px){
+  .card .card-figcaption-button {
+    left: 50%;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
+    white-space: nowrap !important;
+    width: max-content !important;
+    transform: translateX(-50%) !important;
   }
 }
 
+.card .card-figure .halo-badges {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    z-index: 1;
+}
 
-@media (min-width:1025px){
-  a.card-figcaption-button{
-    left: 0;                 
-    right: 0;                
-    margin-left: auto;     
-    margin-right: auto;
-    white-space: nowrap;      
-    width: max-content !important; 
-  }
+.card .card-figure .halo-badges.right {
+    left: 0;
+    width: 100%;
+    padding: 12px 4px 0 0;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.card .card-figure .halo-badges.right .sale-badge--promo,
+.card .card-figure .halo-badges.right .custom-badge--promo {
+    position: absolute;
+    top: 12px;
+    left: auto;
+    right: 0;
+    margin-right: 0;
+}
+
+.card .card-figure .halo-badges .soldOut-badge {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    margin: 0;
+    transform: scale(0.5);
+    transform-origin: left bottom;
 }
 
 .custom-badges-wrapper{
@@ -3094,7 +3844,68 @@ li.navPages-item.has-dropdown.has-image.has-megamenu
     padding: 13px 14px 13px;
     font-weight: 800;
     font-size: 24px;
-    z-index: 9000;
+    z-index: 5;
+}
+
+.productView .productView-images-wrapper .sale-badge--promo {
+    position: absolute;
+    right: 2px;
+    left: auto;
+    top: 52px;
+    margin: 0;
+    z-index: 6;
+}
+
+.productView .productView-images-wrapper .halo-badges.right {
+    left: 0;
+    width: 100%;
+    padding: 12px 4px 0 0;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.productView .productView-images-wrapper .halo-badges.right .sale-badge--promo,
+.productView .productView-images-wrapper .halo-badges.right .custom-badge--promo {
+    margin-right: 0;
+    right: 2px;
+}
+
+@media (min-width: 1025px) {
+  .page-type-product .promo-card-product {
+    right: 0;
+  }
+
+  .page-type-product .productView .productView-images-wrapper .halo-badges.right {
+    padding-right: 0;
+  }
+
+  .page-type-product .productView .productView-images-wrapper .sale-badge--promo,
+  .page-type-product .productView .productView-images-wrapper .custom-badge--promo {
+    right: 0;
+  }
+
+  .page-type-product .productView-images .productView-images-wrapper {
+    max-width: calc(100vh - 430px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-type-product .productView-images .productView-nav,
+  .page-type-product .productView-images .productView-for {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page-type-product .productView-images {
+    width: calc(44% - 18px);
+    margin-right: 18px;
+  }
+
+  .page-type-product .productView-right {
+    width: calc(56% - 18px);
+    margin-left: 18px;
+  }
 }
 
 @media (max-width: 1025px){
@@ -3105,10 +3916,139 @@ li.navPages-item.has-dropdown.has-image.has-megamenu
     font-size: 14px;
     font-weight: 700;
   }
+
+  .productView .productView-images-wrapper .sale-badge--promo {
+    right: 6px;
+    top: 36px;
+  }
+}
+
+/* Hide visual product badges on cards and product image galleries. */
+.card .card-figure .halo-badges,
+.productView .productView-images-wrapper .halo-badges,
+.productView .productView-images-wrapper .custom-badges-wrapper {
+  display: none;
 }
 
 .openQuickSearch .halo-background {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.footer-bottom-content {
+  padding-top: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .footer-bottom-content {
+    margin-top: 0 !important;
+  }
+}
+
+.footer-bottom-content .footer-bottom-title {
+  margin-top: 0 !important;
+}
+
+.footer-bottom-content > .header-line {
+  margin-top: 0 !important;
+}
+
+.footer-payment-social {
+  margin-bottom: 16px !important;
+
+  #DigiCertClickID_rJrKyUK6 {
+    margin-top: 8px;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.add-to-cart-wrapper .selective-brand-notice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 16px;
+  color: #6e6e6e;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.add-to-cart-wrapper .selective-brand-notice__tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: help;
+}
+
+.add-to-cart-wrapper .selective-brand-notice__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #f0b949;
+  color: #ffffff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  cursor: help;
+}
+
+.add-to-cart-wrapper .selective-brand-notice__content {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 12px);
+  width: calc(100vw - 48px);
+  max-width: 430px;
+  padding: 18px 20px;
+  border-radius: 8px;
+  background: #2d2d2d;
+  color: #ffffff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  z-index: 20;
+}
+
+.add-to-cart-wrapper .selective-brand-notice__tooltip:hover .selective-brand-notice__content {
+  display: block;
+}
+
+.productView--quickView .add-to-cart-wrapper .selective-brand-notice__content {
+  left: auto;
+  right: 0;
+  max-width: 360px;
+  z-index: 5;
+}
+
+@media (max-width: 767px) {
+  .add-to-cart-wrapper .selective-brand-notice {
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+
+  .add-to-cart-wrapper .selective-brand-notice__tooltip:hover .selective-brand-notice__content {
+    display: none;
+  }
+
+  .add-to-cart-wrapper .selective-brand-notice__content {
+    width: calc(100vw - 32px);
+    max-width: 320px;
+    padding: 16px 18px;
+    font-size: 12px;
+  }
 }
